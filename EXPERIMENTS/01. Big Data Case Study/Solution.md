@@ -11,8 +11,8 @@
 I hope this helps you understand how the 7V's of big data apply to Walmart. 😊
 
 Source:
-(1) [Top 10 Big Data Case Studies that You Should Know.](https://techvidvan.com/tutorials/top-10-big-data-case-studies/.)
-(2) [5 Big Data Case Studies – How big companies use Big Data.](https://data-flair.training/blogs/big-data-case-studies/.)
-(3) [17 important case studies on Big Data - Crayon Data.](https://crayondata.ai/17-important-case-studies-on-big-data/.)
-(4) [37 Big Data Case Studies with Big Results - Mark Schaefer.](https://businessesgrow.com/2016/12/06/big-data-case-studies/.)
-(5) [Companies Using Big Data | Big Data Case Studies - Datamation.](https://www.datamation.com/big-data/big-data-case-studies.)
+- (1) [Top 10 Big Data Case Studies that You Should Know.](https://techvidvan.com/tutorials/top-10-big-data-case-studies/.)
+- (2) [5 Big Data Case Studies – How big companies use Big Data.](https://data-flair.training/blogs/big-data-case-studies/.)
+- (3) [17 important case studies on Big Data - Crayon Data.](https://crayondata.ai/17-important-case-studies-on-big-data/.)
+- (4) [37 Big Data Case Studies with Big Results - Mark Schaefer.](https://businessesgrow.com/2016/12/06/big-data-case-studies/.)
+- (5) [Companies Using Big Data | Big Data Case Studies - Datamation.](https://www.datamation.com/big-data/big-data-case-studies.)
