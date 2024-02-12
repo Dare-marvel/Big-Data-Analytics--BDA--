@@ -2,10 +2,15 @@
 
 
 Note: After completing step 12 run the following commands
+
 ```
 su - <your_original_username>
 ```
+
+```
 sudo usermod -aG sudo hadoop
+```
+
 ```
 su - hadoop
 ```
