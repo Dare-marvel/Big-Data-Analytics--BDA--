@@ -25,36 +25,40 @@ Make sure to replace `/path/to/local/file/` with the actual path to your local C
 ## Writing a Java Program of our own
 Certainly! Here's a breakdown of each command with a brief description:
 
-1. **Set HADOOP_CLASSPATH:**
-    ```bash
-    export HADOOP_CLASSPATH=$(hadoop classpath)
-    ```
-    - **Description:** Sets the `HADOOP_CLASSPATH` environment variable to include the Hadoop classpath.
-
-2. **Print HADOOP_CLASSPATH:**
-    ```bash
-    echo $HADOOP_CLASSPATH
-    ```
-    - **Description:** Prints the value of the `HADOOP_CLASSPATH` environment variable.
-
-3. **Create a directory in HDFS:**
-    ```bash
-    hadoop fs -mkdir /WordCountJob
-    ```
-    - **Description:** Creates a directory named "WordCountJob" in the Hadoop Distributed File System (HDFS).
-
-4. **Start all Hadoop daemons:**
+1. **Start all Hadoop daemons:**
     ```bash
     start-all.sh
     ```
     - **Description:** Initiates all Hadoop daemons, including the NameNode, DataNode, ResourceManager, and NodeManager.
 
-5. **List Java processes:**
+2. **List Java processes:**
     ```bash
     jps
     ```
     - **Description:** Lists Java processes to check if Hadoop daemons are running.
 
+
+3. **Create a directory in HDFS:**
+    ```bash
+    hadoop fs -mkdir /WordCountJob
+    ```
+    ```bash
+    hadoop fs -mkdir /WordCountJob/Input
+    ```
+    - **Description:** Creates a directory named "WordCountJob" in the Hadoop Distributed File System (HDFS).
+
+4. **Set HADOOP_CLASSPATH:**
+    ```bash
+    export HADOOP_CLASSPATH=$(hadoop classpath)
+    ```
+    - **Description:** Sets the `HADOOP_CLASSPATH` environment variable to include the Hadoop classpath.
+
+5. **Print HADOOP_CLASSPATH:**
+    ```bash
+    echo $HADOOP_CLASSPATH
+    ```
+    - **Description:** Prints the value of the `HADOOP_CLASSPATH` environment variable.
+      
 6. **Upload a local file to HDFS:**
     ```bash
     hadoop fs -put /home/hadoop/Desktop/WordCountJob/input_data/Youtuber.txt /WordCountJob/Input
