@@ -92,7 +92,7 @@ Certainly! Here's a breakdown of each command with a brief description:
     - **Description:** Displays the content of the output files in the HDFS directory "/WordCountJob/Output."
 
 ## In the above process if you make any mistake and you want to delete the directory created you can use this command
-**Delete a directory in HDFS:**
+- **Delete a directory in HDFS:**
     ```bash
     hadoop fs -rm -r /WordCountJob/Output/
     ```
