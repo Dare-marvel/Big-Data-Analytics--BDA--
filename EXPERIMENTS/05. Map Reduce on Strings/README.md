@@ -87,7 +87,7 @@ Certainly! Here's a breakdown of each command with a brief description:
 
 11. **Display output from HDFS:**
     ```bash
-    hadoop dfs -cat /WordCountJob/Output/*
+    hdfs dfs -cat /WordCountJob/Output/*
     ```
     - **Description:** Displays the content of the output files in the HDFS directory "/WordCountJob/Output."
 
