@@ -30,10 +30,10 @@ hdfs dfs -get $HDFS_DIRECTORY/output/pp/part-r-00000 /path/to/local/output/outt.
 LOCAL_INPUT_FILE="/path/to/local/file/Youtuber.txt"
 
 # Set your HDFS directory path
-HDFS_DIRECTORY="/WordCountJob"
+HDFS_DIRECTORY="/yourfilenameJob"
 
 # Set your project directory
-PROJECT_DIRECTORY="/home/hadoop/Desktop/WordCountJob"
+PROJECT_DIRECTORY="/home/hadoop/Desktop/yourfilenameJob"
 
 # 1. Start all Hadoop daemons
 start-all.sh
@@ -58,13 +58,13 @@ hadoop fs -put $LOCAL_INPUT_FILE $HDFS_DIRECTORY/Input
 cd $PROJECT_DIRECTORY
 
 # 8. Compile Java code
-javac -classpath ${HADOOP_CLASSPATH} -d $PROJECT_DIRECTORY/classes $PROJECT_DIRECTORY/WordCount.java
+javac -classpath ${HADOOP_CLASSPATH} -d $PROJECT_DIRECTORY/classes $PROJECT_DIRECTORY/yourfilename.java
 
 # 9. Create a JAR file
-jar -cvf WordCountJob.jar -C $PROJECT_DIRECTORY/classes/ .
+jar -cvf yourfilenameJob.jar -C $PROJECT_DIRECTORY/classes/ .
 
 # 10. Run Hadoop MapReduce job
-hadoop jar $PROJECT_DIRECTORY/WordCountJob.jar WordCount $HDFS_DIRECTORY/Input $HDFS_DIRECTORY/Output
+hadoop jar $PROJECT_DIRECTORY/yourfilenameJob.jar yourfilename $HDFS_DIRECTORY/Input $HDFS_DIRECTORY/Output
 
 # 11. Display output from HDFS
 hdfs dfs -cat $HDFS_DIRECTORY/Output/*
@@ -73,8 +73,6 @@ hdfs dfs -cat $HDFS_DIRECTORY/Output/*
 hadoop fs -get $HDFS_DIRECTORY/Output $PROJECT_DIRECTORY
 ```
 
-
-
 ### Deleting HDFS Output Directory:
 
 ```bash
@@ -82,4 +80,5 @@ hadoop fs -get $HDFS_DIRECTORY/Output $PROJECT_DIRECTORY
 hadoop fs -rm -r $HDFS_DIRECTORY/Output/
 ```
 
+Remember to replace "yourfilename" with your actual filename in these scripts.
 Make sure to replace the placeholder paths with your actual file and directory paths.
