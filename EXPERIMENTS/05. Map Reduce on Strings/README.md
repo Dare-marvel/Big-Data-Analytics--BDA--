@@ -23,7 +23,8 @@
 Make sure to replace `/path/to/local/file/` with the actual path to your local CSV file, and `/path/to/hadoop/` with the actual path where Hadoop is installed on your Ubuntu machine. Also, ensure that the Hadoop JAR file path is correct.
 
 ## Writing a Java Program of our own
-Certainly! Here's a breakdown of each command with a brief description:
+
+### [Reference Video Link](https://youtu.be/6sK3LDY7Pp4?si=v8suLG_6uL6r7_Xc)
 
 1. **Start all Hadoop daemons:**
     ```bash
