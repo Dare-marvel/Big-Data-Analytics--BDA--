@@ -68,10 +68,11 @@ hadoop jar $PROJECT_DIRECTORY/WordCountJob.jar WordCount $HDFS_DIRECTORY/Input $
 
 # 11. Display output from HDFS
 hdfs dfs -cat $HDFS_DIRECTORY/Output/*
-```
 
 # 12. Copy the entire output directory from HDFS to the local file system
 hadoop fs -get $HDFS_DIRECTORY/Output $PROJECT_DIRECTORY
+```
+
 
 
 ### Deleting HDFS Output Directory:
