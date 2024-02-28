@@ -1,104 +1,86 @@
-## Using Inbuilt Jar File:
-
-1. **Create a directory in HDFS:**
-    ```bash
-    hadoop fs -mkdir -p /user/abc/input
-    ```
-
-2. **Upload a file to HDFS:**
-    ```bash
-    hadoop fs -put /path/to/local/file/Kane-Williamson-All-International-Cricket-Centuries.csv /user/abc/input
-    ```
-
-3. **Run a MapReduce job using the Hadoop examples JAR:**
-    ```bash
-    hadoop jar /path/to/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount input/Kane-Williamson-All-International-Cricket-Centuries.csv output/pp
-    ```
-
-4. **Download the output file from HDFS to a local directory:**
-    ```bash
-    hdfs dfs -get /user/abc/output/pp/part-r-00000 /path/to/local/output/outt.txt
-    ```
-
-Make sure to replace `/path/to/local/file/` with the actual path to your local CSV file, and `/path/to/hadoop/` with the actual path where Hadoop is installed on your Ubuntu machine. Also, ensure that the Hadoop JAR file path is correct.
-
-## Writing a Java Program of our own
-
 ### [Reference Video Link](https://youtu.be/6sK3LDY7Pp4?si=v8suLG_6uL6r7_Xc)
 
-1. **Start all Hadoop daemons:**
-    ```bash
-    start-all.sh
-    ```
-    - **Description:** Initiates all Hadoop daemons, including the NameNode, DataNode, ResourceManager, and NodeManager.
+### Using Hadoop Examples JAR:
 
-2. **List Java processes:**
-    ```bash
-    jps
-    ```
-    - **Description:** Lists Java processes to check if Hadoop daemons are running.
+```bash
+# Set your local CSV file path
+LOCAL_CSV_FILE="/path/to/local/file/Kane-Williamson-All-International-Cricket-Centuries.csv"
 
+# Set your HDFS directory path
+HDFS_DIRECTORY="/user/abc"
 
-3. **Create a directory in HDFS:**
-    ```bash
-    hadoop fs -mkdir /WordCountJob
-    ```
-    ```bash
-    hadoop fs -mkdir /WordCountJob/Input
-    ```
-    - **Description:** Creates a directory named "WordCountJob" in the Hadoop Distributed File System (HDFS).
+# Set your Hadoop JAR file path
+HADOOP_JAR_PATH="/path/to/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar"
 
-4. **Set HADOOP_CLASSPATH:**
-    ```bash
-    export HADOOP_CLASSPATH=$(hadoop classpath)
-    ```
-    - **Description:** Sets the `HADOOP_CLASSPATH` environment variable to include the Hadoop classpath.
+# 1. Create a directory in HDFS
+hadoop fs -mkdir -p $HDFS_DIRECTORY/input
 
-5. **Print HADOOP_CLASSPATH:**
-    ```bash
-    echo $HADOOP_CLASSPATH
-    ```
-    - **Description:** Prints the value of the `HADOOP_CLASSPATH` environment variable.
-      
-6. **Upload a local file to HDFS:**
-    ```bash
-    hadoop fs -put /home/hadoop/Desktop/WordCountJob/input_data/Youtuber.txt /WordCountJob/Input
-    ```
-    - **Description:** Uploads the local file "Youtuber.txt" to the HDFS directory "/WordCountJob/Input."
+# 2. Upload a file to HDFS
+hadoop fs -put $LOCAL_CSV_FILE $HDFS_DIRECTORY/input
 
-7. **Navigate to project directory:**
-    ```bash
-    cd /home/hadoop/Desktop/WordCountJob/
-    ```
-    - **Description:** Changes the current working directory to the project directory.
+# 3. Run a MapReduce job using the Hadoop examples JAR
+hadoop jar $HADOOP_JAR_PATH wordcount $HDFS_DIRECTORY/input/Kane-Williamson-All-International-Cricket-Centuries.csv $HDFS_DIRECTORY/output/pp
 
-8. **Compile Java code:**
-    ```bash
-    javac -classpath ${HADOOP_CLASSPATH} -d /home/hadoop/Desktop/WordCountJob/classes /home/hadoop/Desktop/WordCountJob/WordCount.java
-    ```
-    - **Description:** Compiles the Java code "WordCount.java" with the Hadoop classpath and stores the compiled classes in the "classes" directory.
+# 4. Download the output file from HDFS to a local directory
+hdfs dfs -get $HDFS_DIRECTORY/output/pp/part-r-00000 /path/to/local/output/outt.txt
+```
 
-9. **Create a JAR file:**
-    ```bash
-    jar -cvf firstProgram.jar -C classes/ .
-    ```
-    - **Description:** Creates a JAR file named "firstProgram.jar" containing the compiled classes from the "classes" directory.
+### Writing a Custom Java Program:
 
-10. **Run Hadoop MapReduce job:**
-    ```bash
-    hadoop jar /home/hadoop/Desktop/WordCountJob/firstProgram.jar WordCount /WordCountJob/Input /WordCountJob/Output
-    ```
-    - **Description:** Executes a Hadoop MapReduce job using the JAR file "firstProgram.jar" with the "WordCount" class, taking input from "/WordCountJob/Input" and producing output in "/WordCountJob/Output."
+```bash
+# Set your local input file path
+LOCAL_INPUT_FILE="/path/to/local/file/Youtuber.txt"
 
-11. **Display output from HDFS:**
-    ```bash
-    hdfs dfs -cat /WordCountJob/Output/*
-    ```
-    - **Description:** Displays the content of the output files in the HDFS directory "/WordCountJob/Output."
+# Set your HDFS directory path
+HDFS_DIRECTORY="/yourfilenameJob"
 
-## In the above process if you make any mistake and you want to delete the directory created you can use this command
-- **Delete a directory in HDFS:**
-    ```bash
-    hadoop fs -rm -r /WordCountJob/Output/
-    ```
-    - **Description:** Deletes the directory "/WordCountJob/Output/" and its contents from HDFS if a mistake is made and you want to remove the output data.
+# Set your project directory
+PROJECT_DIRECTORY="/home/hadoop/Desktop/yourfilenameJob"
+
+# 1. Start all Hadoop daemons
+start-all.sh
+
+# 2. List Java processes
+jps
+
+# 3. Create directories in HDFS
+hadoop fs -mkdir $HDFS_DIRECTORY
+hadoop fs -mkdir $HDFS_DIRECTORY/Input
+
+# 4. Set HADOOP_CLASSPATH
+export HADOOP_CLASSPATH=$(hadoop classpath)
+
+# 5. Print HADOOP_CLASSPATH
+echo $HADOOP_CLASSPATH
+
+# 6. Upload a local file to HDFS
+hadoop fs -put $LOCAL_INPUT_FILE $HDFS_DIRECTORY/Input
+
+# 7. Navigate to project directory
+cd $PROJECT_DIRECTORY
+
+# 8. Compile Java code
+javac -classpath ${HADOOP_CLASSPATH} -d $PROJECT_DIRECTORY/classes $PROJECT_DIRECTORY/yourfilename.java
+
+# 9. Create a JAR file
+jar -cvf yourfilenameJob.jar -C $PROJECT_DIRECTORY/classes/ .
+
+# 10. Run Hadoop MapReduce job
+hadoop jar $PROJECT_DIRECTORY/yourfilenameJob.jar yourfilename $HDFS_DIRECTORY/Input $HDFS_DIRECTORY/Output
+
+# 11. Display output from HDFS
+hdfs dfs -cat $HDFS_DIRECTORY/Output/*
+
+# 12. Copy the entire output directory from HDFS to the local file system
+hadoop fs -get $HDFS_DIRECTORY/Output $PROJECT_DIRECTORY
+```
+
+### Deleting HDFS Output Directory:
+
+```bash
+# Delete a directory in HDFS
+hadoop fs -rm -r $HDFS_DIRECTORY/Output/
+```
+
+Remember to replace "yourfilename" with your actual filename in these scripts.
+Make sure to replace the placeholder paths with your actual file and directory paths.
