@@ -1,5 +1,7 @@
 # Performing CRUD operations on Apache HBase
 
+## [Click here to view the installation of HBase on Ubuntu Video](https://www.youtube.com/watch?v=dPJRQnHIpPA)
+
 ## Starting Hadoop Daemons
 ```shell
 start-all.sh
