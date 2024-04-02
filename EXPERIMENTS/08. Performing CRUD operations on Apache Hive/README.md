@@ -1,4 +1,4 @@
-# Performing CRUD operations on Apache HBase
+# Performing CRUD operations on Apache Hive
 
 ## [Click here to view the tutorial of installation of Hive on Ubuntu ](https://www.youtube.com/watch?v=wPIawRML168)
 
